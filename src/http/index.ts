@@ -12,7 +12,7 @@ export class Http {
     this.instance = axios.create({
       baseURL:
         process.env.NODE_ENV === 'production'
-          ? 'http://120.26.11.52'
+          ? 'http://120.26.11.52:3000'
           : 'http://localhost:3000'
     });
     this.initInterceptor();
