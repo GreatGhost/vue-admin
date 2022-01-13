@@ -9,10 +9,10 @@
     <div class="login-box">
       <el-form
         class="login-form"
-        label-position="top"
+        label-position="left"
         ref="form"
         :model="form"
-        label-width="80px"
+        label-width="60px"
         :rules="rules"
       >
         <h1>用户登录</h1>
@@ -22,6 +22,10 @@
         <el-form-item label="密码" prop="password">
           <el-input v-model="form.password" show-password></el-input>
         </el-form-item>
+        <p class="a-link">
+          <router-link to="/resetPwd">忘记密码</router-link>
+          <router-link to="/register">用户注册</router-link>
+        </p>
         <el-button
           class="login-btn"
           type="primary"
@@ -39,6 +43,7 @@ import Vue from 'vue';
 import qs from 'qs';
 import { Form } from 'element-ui';
 import store from '@/store/index';
+import UserService from '@/controls/UserService';
 export default Vue.extend({
   name: 'LoginIndex',
   data() {
@@ -65,19 +70,11 @@ export default Vue.extend({
         await (this.$refs.form as Form).validate(); // 若不传入回调函数，则返回一个promise
         // 2. 验证通过 -> 提交表单
         this.isLoginLoading = true;
-        this.$http
-          .post(
-            '/admin/login',
-            qs.stringify(this.form) // axios 默认发送的是application/json格式的数据
-          )
-          .then((data: any) => {
-            if (data.code == 0) {
-              store.commit('setToken', data.token);
-              this.$router.push('/');
-            } else {
-              this.$message(data.msg);
-            }
+        UserService.login(this.form).then((res) => {
+          this.$router.push({
+            path: '/'
           });
+        });
       } catch (error) {
         console.log('登录失败', error);
       }
@@ -106,6 +103,8 @@ export default Vue.extend({
 
   .login-box {
     h1 {
+      font-size: 30px;
+      line-height: 32px;
       text-align: center;
     }
     position: absolute;
@@ -122,6 +121,13 @@ export default Vue.extend({
 
   .login-btn {
     width: 100%;
+    margin-top: 30px;
+  }
+  .a-link {
+    text-align: right;
+    a + a {
+      margin-left: 5px;
+    }
   }
 }
 </style>

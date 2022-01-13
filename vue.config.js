@@ -1,6 +1,9 @@
 const webpack = require('webpack');
+const path = require('path');
+const  isPro=process.env.NODE_ENV==='production'?true:false;
 module.exports = {
-  publicPath: './',
+  lintOnSave: false,
+  publicPath: process.env.NODE_ENV==='production'?'':'./',
   chainWebpack: (config) => {
     const imgRule = config.module.rule('images');
     var isProd = process.env.NODE_ENV === 'production' ? true : false;
@@ -14,7 +17,13 @@ module.exports = {
         .end();
     }
   },
-  configureWebpack: {
-    plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)]
+  configureWebpack: (config) => {
+    config.resolve = {
+      extensions: ['.ts','.js', '.json', '.vue'],
+      alias: {
+        '@': path.resolve(__dirname,'./src'),
+        'assets':path.resolve(__dirname,'./src/assets')
+      }
+    };
   }
 };

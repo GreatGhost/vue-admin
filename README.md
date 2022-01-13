@@ -24,7 +24,8 @@
 - 子路由的设置;
 
 ### eslint 的规范设置
-
+### 路由设置
+- base设置导致出现报错 token>
 -
 
 ### 参考文献
@@ -34,5 +35,6 @@
 - [Vue-Router 的原理](https://www.cnblogs.com/gaosirs/p/10606266.html)
 - [无法找到模块问题](https://blog.csdn.net/woshissss/article/details/114755815)
 - [Eslint 超简单入门教程](https://www.jianshu.com/p/ad1e46faaea2)
-
+- [vue.config.js文件配置](https://www.cnblogs.com/love314159/p/14804277.html)
+- [怎么引入vue文件不带后缀](https://www.cnblogs.com/ginkgo-leaves/p/10718478.html)
 ### 别人的博客

@@ -13,9 +13,4 @@ export default Vue.extend({
 </script>
 <style lang="less">
 @import url('style/base.less');
-.body {
-  width: 20px;
-  height: 30px;
-  background: blue;
-}
 </style>

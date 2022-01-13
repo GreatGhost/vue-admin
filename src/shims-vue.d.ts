@@ -1,8 +1,8 @@
 import { Message } from 'element-ui';
-declare module '*.vue' {
-  import Vue from 'vue';
-  export default Vue;
-}
+// declare module '*.vue' {
+//   import Vue from 'vue';
+//   export default Vue;
+// }
 declare module 'vue/types/vue' {
   interface Vue {
     $http: any;
