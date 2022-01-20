@@ -13,7 +13,7 @@
           <ul class="menu-list">
             <li class="menu-item" @click="logout">
               <i class="el-icon-delete"></i
-              ><span class="btn-txt">{{ $t('headerMenu.logout') }}</span>
+              ><span class="btn-txt">{{ $t("headerMenu.logout") }}</span>
             </li>
           </ul>
         </div>
@@ -28,11 +28,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
-      username: ''
+      username: ""
     };
   },
 

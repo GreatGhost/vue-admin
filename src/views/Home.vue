@@ -98,7 +98,7 @@ export default Vue.extend({
       this.crumbData=this.$route.matched;
       console.log(this)
     },
-    handleDrop(command) {
+    handleDrop(command:any) {
       switch (command) {
         case 'home':
           this.goHome();

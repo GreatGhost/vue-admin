@@ -29,22 +29,22 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { Form } from 'element-ui';
-
-import UserService from '@/controls/UserService';
+import Vue from "vue";
+import { Form } from "element-ui";
+import dayjs from "dayjs";
+import UserService from "@/controls/UserService";
 export default Vue.extend({
   data() {
     return {
       form: {
-        username: '',
-        password: ''
+        username: "",
+        password: ""
       },
       rules: {
-        username: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
+        username: [{ required: true, message: "请输入姓名", trigger: "blur" }],
         password: [
-          { required: true, message: '请输入密码', trigger: 'blur' },
-          { min: 6, max: 6, message: '6位字符', trigger: 'blur' }
+          { required: true, message: "请输入密码", trigger: "blur" },
+          { min: 6, max: 6, message: "6位字符", trigger: "blur" }
         ]
       },
       isLoginLoading: false
@@ -55,8 +55,11 @@ export default Vue.extend({
       try {
         await (this.$refs.ruleForm as Form).validate(); // 若不传入回调函数，则返回一个promise
         this.isLoginLoading = true;
-        UserService.register(this.form).then((res) => {
-          this.$router.push('/');
+        let params = Object.assign(this.form, {
+          date: dayjs().format("yyyy-mm-dd hh:mm:ss")
+        });
+        UserService.register(params).then((res) => {
+          this.$router.push("/");
         });
       } catch (err) {
         console.log(err);
@@ -73,7 +76,7 @@ export default Vue.extend({
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: url('https://img.js.design/assets/Resources/background/login-bg-5.jpg')
+  background: url("https://img.js.design/assets/Resources/background/login-bg-5.jpg")
     no-repeat;
   background-size: cover;
   .register-group {

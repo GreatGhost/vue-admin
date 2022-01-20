@@ -20,7 +20,14 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    'semi': "off",
+    'semi':[
+      2,
+      "always",
+      {
+        omitLastInOneLineBlock:true
+      }
+    ],
+    "quotes": [2, "double"], //警告，必须双引号
     "comma-dangle": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off"
   }

@@ -39,25 +39,25 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import qs from 'qs';
-import { Form } from 'element-ui';
-import store from '@/store/index';
-import UserService from '@/controls/UserService';
+import Vue from "vue";
+import qs from "qs";
+import { Form } from "element-ui";
+import store from "@/store/index";
+import UserService from "@/controls/UserService";
 export default Vue.extend({
-  name: 'LoginIndex',
+  name: "LoginIndex",
   data() {
     return {
       form: {
-        username: '',
-        password: ''
+        username: "",
+        password: ""
       },
-      address: '',
+      address: "",
       rules: {
-        username: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
+        username: [{ required: true, message: "请输入姓名", trigger: "blur" }],
         password: [
-          { required: true, message: '请输入密码', trigger: 'blur' },
-          { min: 6, max: 6, message: '6位字符', trigger: 'blur' }
+          { required: true, message: "请输入密码", trigger: "blur" },
+          { min: 6, max: 6, message: "6位字符", trigger: "blur" }
         ]
       },
       isLoginLoading: false
@@ -72,11 +72,11 @@ export default Vue.extend({
         this.isLoginLoading = true;
         UserService.login(this.form).then((res) => {
           this.$router.push({
-            path: '/'
+            path: "/"
           });
         });
       } catch (error) {
-        console.log('登录失败', error);
+        console.log("登录失败", error);
       }
       this.isLoginLoading = false;
     }

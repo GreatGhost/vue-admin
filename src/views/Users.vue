@@ -21,8 +21,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { getUsers } from '@/http/model/user';
+import Vue from "vue";
+import { getUsers } from "@/http/model/user";
 
 export default Vue.extend({
   data() {
@@ -33,7 +33,7 @@ export default Vue.extend({
     };
   },
   computed: {
-    currentPage() {
+    currentPage(): number {
       return this.page - 1;
     }
   },
@@ -48,8 +48,8 @@ export default Vue.extend({
         return {
           id: index + 1,
           username: item.user_name,
-          date: '2020年11月3号 11:30:35',
-          address: '深圳'
+          date: "2020年11月3号 11:30:35",
+          address: "深圳"
         };
       });
       this.result = result;

@@ -1,7 +1,8 @@
 {
   "semi": true,
-  "singleQuote": true,
+  "singleQuote": false,
   "tabWidth": 2,
   "trailingComma": "none",
-  "tslintIntegration": false
+  "tslintIntegration": false,
+  "endOfLine": "auto"
 }

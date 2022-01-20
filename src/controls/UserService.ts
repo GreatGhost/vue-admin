@@ -1,7 +1,7 @@
-import http from '@/http';
-import Store from '@/store';
-import { Message } from 'element-ui';
-import qs from 'qs';
+import http from "@/http";
+import Store from "@/store";
+import { Message } from "element-ui";
+import qs from "qs";
 interface IUserParam {
   username: string;
   password: string;
@@ -14,10 +14,10 @@ abstract class UserService {
   static login(params: IUserParam) {
     return new Promise((resolve, reject) => {
       return http
-        .post('/admin/login', qs.stringify(params))
+        .post("/admin/login", qs.stringify(params))
         .then((res: any) => {
           if (res.code == 0) {
-            Message.success('登录成功');
+            Message.success("登录成功");
             UserService.updateStorage(res);
             resolve(res);
           } else {
@@ -35,11 +35,11 @@ abstract class UserService {
    */
   static register(params: IUserParam) {
     return new Promise((resolve, reject) => {
-      http.post('/admin/register', qs.stringify(params)).then((res) => {
+      http.post("/admin/register", qs.stringify(params)).then((res) => {
         if (res.code == 0) {
           Message({
-            message: '注册成功',
-            type: 'success'
+            message: "注册成功",
+            type: "success"
           });
           this.updateStorage(res);
           resolve(res);
@@ -53,16 +53,16 @@ abstract class UserService {
 
   // 更新用户信息
   static updateStorage(res: any) {
-    Store.commit('setToken', res.token);
-    Store.commit('setUserInfo', res.data.username);
+    Store.commit("setToken", res.token);
+    Store.commit("setUserInfo", res.data.username);
   }
 
   // 退出登录
   static logout() {
     UserService.updateStorage({
-      token: '',
+      token: "",
       data: {
-        username: ''
+        username: ""
       }
     });
   }

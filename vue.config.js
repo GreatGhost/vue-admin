@@ -3,7 +3,7 @@ const path = require('path');
 const  isPro=process.env.NODE_ENV==='production'?true:false;
 module.exports = {
   lintOnSave: false,
-  publicPath: process.env.NODE_ENV==='production'?'':'./',
+  publicPath: './',
   chainWebpack: (config) => {
     const imgRule = config.module.rule('images');
     var isProd = process.env.NODE_ENV === 'production' ? true : false;

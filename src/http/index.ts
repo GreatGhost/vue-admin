@@ -3,26 +3,26 @@ import axios, {
   AxiosResponse,
   Axios,
   AxiosRequestHeaders
-} from 'axios';
-import { Message } from 'element-ui';
+} from "axios";
+import { Message } from "element-ui";
 
 export class Http {
   public instance: Axios;
   constructor() {
     this.instance = axios.create({
       baseURL:
-        process.env.NODE_ENV === 'production'
-          ? 'http://120.26.11.52:3000'
-          : 'http://localhost:3000'
+        process.env.NODE_ENV === "production"
+          ? "http://120.26.11.52:3000"
+          : "http://localhost:3000"
     });
     this.initInterceptor();
   }
 
   initInterceptor(): void {
-    this.instance.defaults.headers.post['Content-Type'] =
-      'application/x-www-form-urlencoded';
+    this.instance.defaults.headers.post["Content-Type"] =
+      "application/x-www-form-urlencoded";
     this.instance.interceptors.request.use((config: AxiosRequestConfig) => {
-      const token: string = window.localStorage.getItem('id_token') || '';
+      const token: string = window.localStorage.getItem("id_token") || "";
       if (token) {
         (config.headers as AxiosRequestHeaders).authorization = token;
       }
@@ -30,10 +30,10 @@ export class Http {
     });
     this.instance.interceptors.response.use((res: AxiosResponse) => {
       if (res.headers.authorization) {
-        window.localStorage.setItem('id_token', res.headers.authorization);
+        window.localStorage.setItem("id_token", res.headers.authorization);
       } else {
         if (res.data && res.data.token) {
-          window.localStorage.setItem('id_token', res.data.token);
+          window.localStorage.setItem("id_token", res.data.token);
         }
       }
       if (res.status == 200) {
@@ -45,8 +45,8 @@ export class Http {
     switch (res.code) {
       case 401:
         Message({
-          type: 'error',
-          message: '请先登录'
+          type: "error",
+          message: "请先登录"
         });
         break;
       case 402:
@@ -56,8 +56,8 @@ export class Http {
         break;
       default:
         Message({
-          type: 'error',
-          message: '连接失败'
+          type: "error",
+          message: "连接失败"
         });
     }
   }
