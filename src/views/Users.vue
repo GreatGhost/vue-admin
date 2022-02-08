@@ -42,7 +42,7 @@ export default Vue.extend({
   },
   methods: {
     async getData() {
-      const result = await getUsers(this.page, this.pagesize);
+      const result: any = await getUsers(this.page, this.pagesize);
       this.page++;
       result.data = result.data.map((item, index) => {
         return {

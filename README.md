@@ -26,7 +26,9 @@
 ### eslint 的规范设置
 ### 路由设置
 - base设置导致出现报错 token>
--
+
+### 富文本添加vue-quil-editor
+- [富文本添加](https://blog.csdn.net/maggie_live/article/details/88695477)
 
 ### 参考文献
 

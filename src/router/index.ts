@@ -29,6 +29,14 @@ const routes: Array<RouteConfig> = [
         },
         component: () => import("../views/Users.vue")
       }
+      // {
+      //   path: "editor",
+      //   name: "Editor",
+      //   meta: {
+      //     title: "富文本编辑"
+      //   },
+      //   component: () => import("../views/QuillEdit.vue")
+      // }
     ]
   },
   // {

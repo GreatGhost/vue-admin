@@ -5,7 +5,6 @@ import store from "./store";
 import i18n from "./i18n";
 import http from "./http";
 import "./plugins/index";
-import "element-ui/lib/theme-chalk/index.css";
 import { logger } from "@/utils/utils";
 Vue.config.productionTip = false;
 Vue.prototype.$http = http;

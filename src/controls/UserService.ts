@@ -13,18 +13,16 @@ abstract class UserService {
    */
   static login(params: IUserParam) {
     return new Promise((resolve, reject) => {
-      return http
-        .post("/admin/login", qs.stringify(params))
-        .then((res: any) => {
-          if (res.code == 0) {
-            Message.success("登录成功");
-            UserService.updateStorage(res);
-            resolve(res);
-          } else {
-            Message.error(res.msg);
-            reject(res);
-          }
-        });
+      return http.post("/admin/login", qs.stringify(params)).then((res) => {
+        if (res.code == 0) {
+          Message.success("登录成功");
+          UserService.updateStorage(res);
+          resolve(res);
+        } else {
+          Message.error(res.msg);
+          reject(res);
+        }
+      });
     });
   }
 

@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "noImplicitAny":true,
+    "noImplicitAny":false,
     "module": "esnext",
-    "strict": true,
+    "strict": false,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",

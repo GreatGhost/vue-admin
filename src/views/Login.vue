@@ -40,9 +40,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import qs from "qs";
 import { Form } from "element-ui";
-import store from "@/store/index";
 import UserService from "@/controls/UserService";
 export default Vue.extend({
   name: "LoginIndex",
